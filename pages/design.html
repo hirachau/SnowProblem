@@ -42,9 +42,66 @@
       Note: Waiting on the designated art person of the group, Victor, but no true art yet.</p>
     <h2>Market Analysis</h2>
       <p>
-      Note: Currently, the game is just the very basic experience due to various issues and a short-staffed team, so we may not put it out on the market immediately, although it is a functional game. We will need to polish it a bit more to practically expect it to become popular in the market and do any sort of meaningful analysis.</p>
+      Assuming a released game to Android via Unity we intend to follow the easy freemium model of advertisements to generate revenue. In similar markets, other FTP (free to play) games now make up 94% of the market on Android (VentureBeat). Let it also be noted that of apps downloaded, 40% are games. With Android's sizeable market share, we expect that Snow Problem should have plenty of users to draw from. That being said however, because we are an unknown developer and have no current plans for advertising this product, I believe based on personal experience that estimations such as Forbes, cited below can overshoot due to behemoths such as Clash of Clans and Pokemon Go generating millions in revenue. A likely estimate would be within the range of $10-100 a few months after release.</p>
     <h2>Technical Analysis</h2>
-      <p> A summary: The game consists of mainly a general controller, a menu screen, game screen, and scores screen, snowflakes, enemies, and then a few spawner and lighting objects. The major scripts include a script to flick the snowflakes with mouse-press (or in this case, touchscreen), logic to generate enemies and snowflakes, choose snowflake colors prioritizing the enemy colors, handle collisions and keep score, and count down time.</p>
+      <p> The game consists mainly of three core components: the snowflakes, the enemies and the
+
+overall game controller itself.</p>
+<p>
+The game controller determines the spawn locations of both enemies and snowflakes
+
+and generates the colours of the two. The more of a certain colour enemy on screen, the more
+
+likely a colour of snowflake will be generated to match it. The game controller also keeps track
+
+of the score and time, updating the UI accordingly. Once the time reaches nill, a call is made to
+
+load the high-score menu.
+</p>
+<p>
+The Snowflakes are controlled by a fall script determining location prior to being
+
+interacted with by the user. The user interacts by putting their finger on the screen, generating a
+
+'ray-cast' or straight line from the user's finger through the z axis to determine if any objects are
+
+hit along the way. Assuming an object is hit, an invisible spring is generated at the point of the
+
+user's touch and anchored to the object hit. Until the user releases their finger from the screen
+
+the spring will continue to drag the object to wherever the user points their finger. Upon release,
+
+the object is granted extra velocity in the z direction and unlocked to fly towards any fire.
+</p>
+<p>
+The enemies are controlled by three different possible AI scripts at random on
+
+generation. One iteration has the enemy zig-zag, another has them stand still and the final one
+
+will simply make the enemy move back and forth in a straight line. From there it is a simple
+
+matter of whether the enemy detects a collision with the same colour snowflake, if it does both
+
+objects are deleted and points are increased. If a snowflake of incorrect colour is detected, the
+
+snowflake is deleted, and points are decreased.
+</p>
     <h2>Cost and Revenue Projections</h2>
-      <p>Note: Again, this comes hand-in-hand with the Market Analysis, which, for reasons listed previously, might not currently be meaningful.</p>
+      <p>Cost at this point is minimal, as all members have worked in free time/school time on a
+
+volunteer basis, no cash was provided, but rather a share in the creation of the game. Revenue,
+
+as noted by the aforementioned Market Analysis is minimal, but will net higher than the total
+
+cost of assets (~$28). If all projections are correct the game would net around a 75% gain,
+
+excluding depreciation and market degradation the app could continue to generate revenue for
+
+a good many years to come.</p>
+
+    <h2>Citations:</h2>
+    <p>
+http://venturebeat.com/2014/04/25/apple-vs-google-a-world-view-on-the-mobile-gaming-war/
+</p>
+    <p>http://www.forbes.com/sites/tristanlouis/2013/08/10/how-much-do-average-apps-make/#2af394d512cb</p>
 </html>
